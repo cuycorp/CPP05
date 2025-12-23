@@ -1,25 +1,36 @@
 #include "Bureaucrat.hpp"
-
+#include <stdexcept>
 // Default constructor
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Bureaucrat Default constructor called" << std::endl;
     return ;
 }
 
-// Copy constructor
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    (void) other;
+    if (grade < 1)
+        throw std::out_of_range("Bureaucrat::GradeTooHighException");
+    else if (grade > 150)
+        throw std::out_of_range("Bureaucrat::GradeTooLowException");
+    else
+        _grade = grade;
+    std::cout << " Bureaucrat Default constructor with initialization called" << std::endl;
+    return;
+}
+// Copy constructor
+Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other._name), _grade(other._grade)
+{
+    std::cout << "Bureaucrat Copy constructor called" << std::endl;
     return ;
 }
 
 // Assignment operator overload
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-    std::cout << "Assignment operator called" << std::endl;
-    (void) other;
+    std::cout << "Bureaucrat Assignment operator called" << std::endl;
+    if (this != &other)
+        _grade = other.getGrade();
     return (*this);
 }
 
@@ -28,5 +39,33 @@ Bureaucrat::~Bureaucrat(void)
 {
     std::cout << "Destructor called" << std::endl;
     return ;
+}
+
+//Getters n Setters
+
+const std::string Bureaucrat::getName(void) const
+{
+    return (_name);
+}
+int Bureaucrat::getGrade(void) const
+{
+    return(_grade);
+}
+
+void Bureaucrat::incrementGrade(void)
+{
+    int newGrade = this->getGrade() - 1;
+    if (newGrade == 1)
+        throw std::out_of_range("Bureaucrat::GradeTooHighException");
+    else
+        _grade = newGrade;
+}
+void Bureaucrat::decrementGrade(void)
+{
+    int newGrade = this->getGrade() + 1;
+    if (newGrade == 150)
+        throw std::out_of_range("Bureaucrat::GradeTooLowException.");
+    else
+        _grade = newGrade;
 }
 
