@@ -15,7 +15,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
         throw std::out_of_range("Bureaucrat::GradeTooLowException");
     else
         _grade = grade;
-    std::cout << " Bureaucrat Default constructor with initialization called" << std::endl;
+    std::cout << "Bureaucrat Default constructor with initialization called" << std::endl;
     return;
 }
 // Copy constructor
@@ -69,3 +69,8 @@ void Bureaucrat::decrementGrade(void)
         _grade = newGrade;
 }
 
+ std::ostream &operator<<(std::ostream &os, const Bureaucrat &instance)
+ {
+    os << instance.getName() << " with grade: " << instance.getGrade();
+    return (os);
+ }

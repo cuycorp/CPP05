@@ -18,8 +18,13 @@ class Bureaucrat
         int getGrade(void) const;
         void incrementGrade(void); //td: try catch
         void decrementGrade(void); //td: try catch
-        //methods
+        //Operator Overloading
+        /*
+        operator: keyword for indicating compiler 
+        */
 };
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &instance);
 
 #endif
 
