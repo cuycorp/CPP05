@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp" 
+
 #include <stdexcept>
 // Default constructor
 Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
@@ -75,14 +77,18 @@ void Bureaucrat::decrementGrade(void)
     return (os);
  }
 
-void Bureaucrat::signForm(Form &instanceForm, )
- {
-    instanceForm.beSigned(*this);
-    if (instanceForm.getSignStatus())
+void Bureaucrat::signForm(Form &instanceForm)
+{
+    try
+    {
+        instanceForm.beSigned(*this);
         std::cout << this->getName() << "signed " <<instanceForm.getName();
-    else
-        std::cout << this->getName() << "couldn't sign " <<instanceForm.getName() << "because " <<  ;
- }
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << "couldn't sign " <<instanceForm.getName() << "because " <<  e.what();
+    }
+}
 
 
  /*
@@ -90,5 +96,12 @@ void Bureaucrat::signForm(Form &instanceForm, )
 
  for the functions beSigned and sign form we are generating exceptions, and consulting, and I think in same way
  I have to get information from the information object, but I don't know how to send it between functions
+
+
+ is exceptiona sort 
+
+ difference from calling exception
+ catch(const std::exception& e) and catch(std::out_of_range& e)
+
 
  */

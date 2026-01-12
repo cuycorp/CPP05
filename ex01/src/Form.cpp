@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <stdexcept>
 
@@ -23,7 +24,7 @@ Form::Form(const std::string name, bool isSigned, const int gradeExecute, const 
 }
 
 // Copy constructor
-Form::Form(const Form &other): _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute), _isSigned(other._isSigned)
+Form::Form(const Form &other): _name(other._name), _isSigned(other._isSigned), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)
 {
     std::cout << "Form Copy constructor called" << std::endl;
     return ;

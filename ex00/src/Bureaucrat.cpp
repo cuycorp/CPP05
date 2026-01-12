@@ -74,3 +74,4 @@ void Bureaucrat::decrementGrade(void)
     os << instance.getName() << " with grade: " << instance.getGrade();
     return (os);
  }
+ 
