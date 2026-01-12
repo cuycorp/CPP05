@@ -11,7 +11,7 @@ int main(void)
 	{
 		try
 		{
-			Bureaucrat employee1("Sam", 1500);
+			//Bureaucrat employee1("Sam", 1500);
     	    Bureaucrat employee2("Olaf", -10);
     	    Bureaucrat employee3("Elsa", 11);
 		}
