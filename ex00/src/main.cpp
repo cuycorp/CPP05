@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
 #define RESET   "\033[0m"
 #define PINK    "\033[35m"
 

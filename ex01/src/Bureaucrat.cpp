@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default constructor
 Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
@@ -93,10 +94,10 @@ void Bureaucrat::signForm(Form &instanceForm)
     try
     {
         instanceForm.beSigned(*this);
-        std::cout << this->getName() << "signed " <<instanceForm.getName();
+        std::cout << this->getName() << " signed " <<instanceForm.getName();
     }
     catch(const std::exception& e)
     {
-        std::cout << this->getName() << "couldn't sign " <<instanceForm.getName() << "because " <<  e.what();
+        std::cout << this->getName() << " couldn't sign " <<instanceForm.getName() << " because " <<  e.what();
     }
 }

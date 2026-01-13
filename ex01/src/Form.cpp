@@ -1,5 +1,5 @@
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 #include <stdexcept>
 
 // Default constructor
@@ -76,11 +76,10 @@ int Form::getSignStatus(void) const
  //other methods
  void Form::beSigned(Bureaucrat &instanceB)
  {
-    if (instanceB.getGrade() <= 1)
+    if (instanceB.getGrade() <= _gradeSign)
         _isSigned = true;
-    else if (instanceB.getGrade() > 150)
+    else
         throw Form::GradeTooLowException();
-    
 }
 
 //exceptions
