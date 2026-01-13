@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp" 
 
-#include <stdexcept>
 // Default constructor
 Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
 {
@@ -12,10 +10,10 @@ Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
     if (grade < 1)
-        throw std::out_of_range("Bureaucrat::GradeTooHighException");
+        throw GradeTooHighException();
     else if (grade > 150)
-        throw std::out_of_range("Bureaucrat::GradeTooLowException");
-    else
+        throw GradeTooLowException();
+    else 
         _grade = grade;
     std::cout << "Bureaucrat Default constructor with initialization called" << std::endl;
     return;
@@ -58,7 +56,7 @@ void Bureaucrat::incrementGrade(void)
 {
     int newGrade = this->getGrade() - 1;
     if (newGrade == 1)
-        throw std::out_of_range("Bureaucrat::GradeTooHighException");
+        throw GradeTooHighException();
     else
         _grade = newGrade;
 }
@@ -66,16 +64,29 @@ void Bureaucrat::decrementGrade(void)
 {
     int newGrade = this->getGrade() + 1;
     if (newGrade == 150)
-        throw std::out_of_range("Bureaucrat::GradeTooLowException.");
+        throw GradeTooHighException();
     else
         _grade = newGrade;
 }
 
  std::ostream &operator<<(std::ostream &os, const Bureaucrat &instance)
  {
-    os << instance.getName() << ", bureaucrat grade " << instance.getGrade();
+    os << instance.getName() << " with grade: " << instance.getGrade();
     return (os);
  }
+
+//exceptions
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade too high!");
+    	//std::string
+		//thow is to indicate that what() will throw nothing
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low!");
+}
 
 void Bureaucrat::signForm(Form &instanceForm)
 {
@@ -89,19 +100,3 @@ void Bureaucrat::signForm(Form &instanceForm)
         std::cout << this->getName() << "couldn't sign " <<instanceForm.getName() << "because " <<  e.what();
     }
 }
-
-
- /*
- I have the following code for this problem 
-
- for the functions beSigned and sign form we are generating exceptions, and consulting, and I think in same way
- I have to get information from the information object, but I don't know how to send it between functions
-
-
- is exceptiona sort 
-
- difference from calling exception
- catch(const std::exception& e) and catch(std::out_of_range& e)
-
-
- */

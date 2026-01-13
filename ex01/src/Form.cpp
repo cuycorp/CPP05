@@ -12,13 +12,13 @@ Form::Form(void) : _name("no name"), _isSigned(150), _gradeSign(150), _gradeExec
 Form::Form(const std::string name, bool isSigned, const int gradeExecute, const int gradeSign): _name(name), _isSigned(isSigned), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
     if (gradeExecute < 1)
-        throw std::out_of_range("Form::GradeTooHighException");
+        throw Form::GradeTooHighException();
     else if (gradeExecute > 150)
-        throw std::out_of_range("Form::GradeTooLowException");
+        throw Form::GradeTooLowException();
     else if (gradeSign < 1)
-        throw std::out_of_range("Form::GradeTooHighException");
+        throw Form::GradeTooHighException();
     else if (gradeSign > 150)
-        throw std::out_of_range("Form::GradeTooLowException");
+        throw Form::GradeTooLowException();
     std::cout << "Form Default constructor with initialization called" << std::endl;
     return;
 }
@@ -79,6 +79,19 @@ int Form::getSignStatus(void) const
     if (instanceB.getGrade() <= 1)
         _isSigned = true;
     else if (instanceB.getGrade() > 150)
-        throw std::out_of_range("Form::GradeTooLowException");
+        throw Form::GradeTooLowException();
     
+}
+
+//exceptions
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return ("Grade too high!");
+    	//std::string
+		//thow is to indicate that what() will throw nothing
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low!");
 }

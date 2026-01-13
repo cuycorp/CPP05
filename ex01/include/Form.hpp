@@ -29,6 +29,18 @@ class Form
         
         //other methods
         void beSigned(Bureaucrat &instanceB);
+
+        //exception
+        class GradeTooHighException : public std::exception 
+        {
+            public :
+            virtual const char *what() const throw();
+        };
+        class GradeTooLowException : public std::exception 
+        {
+            public :
+            virtual const char *what() const throw();
+        };
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &instance);
