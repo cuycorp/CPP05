@@ -7,10 +7,10 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/Bureaucrat.hpp include/Form.hpp include/PresidentialPardonForm.hpp
+HDRS = include/Bureaucrat.hpp include/AForm.hpp include/PresidentialPardonForm.hpp include/RobotomyRequestForm.hpp include/ShrubberyCreationForm.hpp
 
 #Source files
-SRCS = src/main.cpp src/Bureaucrat.cpp src/Form.cpp src/PresidentialPardonForm.cpp
+SRCS = src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp src/ShrubberyCreationForm.cpp
 
 #Object file
 

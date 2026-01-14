@@ -24,8 +24,6 @@ class Form
         int getSignGrade(void) const;
         int getExecuteGrade(void) const;
         int getSignStatus(void) const;
-        void incrementGrade(void); //td: try catch
-        void decrementGrade(void); //td: try catch
         
         //other methods
         void beSigned(Bureaucrat &instanceB);

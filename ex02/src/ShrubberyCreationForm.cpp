@@ -19,7 +19,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 //other functions
 static void createTreeFile(const std::string& filename) {
-    std::ofstream file(filename);
+    std::ofstream file(filename.c_str());
     if (file.is_open()) 
     {
         file << "       *\n";

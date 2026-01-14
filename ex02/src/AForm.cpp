@@ -64,7 +64,7 @@ int AForm::getSignStatus(void) const
     return(_isSigned);
 }
 
-std::string AForm::getTarget(void) 
+std::string AForm::getTarget(void) const
 {
     return (_target);
 }

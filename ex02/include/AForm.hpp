@@ -25,8 +25,6 @@ class AForm
         int getSignGrade(void) const;
         int getExecuteGrade(void) const;
         int getSignStatus(void) const;
-        void incrementGrade(void); //td: try catch , maybe erase
-        void decrementGrade(void); //td: try catch, , maybe erase
         std::string getTarget(void) const;
         void setTarget(std::string str);
         

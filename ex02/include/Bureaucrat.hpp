@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 
-class Form;
+class AForm;
 class Bureaucrat
 {
     private: 
@@ -19,6 +19,7 @@ class Bureaucrat
         int getGrade(void) const;
         void incrementGrade(void); //td: try catch
         void decrementGrade(void); //td: try catch
+
         //Exceptions
         class GradeTooHighException : public std::exception 
         {
@@ -30,11 +31,14 @@ class Bureaucrat
             public :
             virtual const char *what() const throw();
         };
+
         //other methods
-        void signForm(Form &instanceForm);
+        void signForm(AForm &instanceForm);
+        void executeForm(AForm &form) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &instance);
 
 #endif
+
 

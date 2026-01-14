@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // Default constructor
 Bureaucrat::Bureaucrat(void): _name("no name"), _grade(150)
@@ -89,7 +89,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade too low!");
 }
 
-void Bureaucrat::signForm(Form &instanceForm)
+void Bureaucrat::signForm(AForm &instanceForm)
 {
     try
     {
@@ -99,5 +99,18 @@ void Bureaucrat::signForm(Form &instanceForm)
     catch(const std::exception& e)
     {
         std::cout << this->getName() << " couldn't sign " <<instanceForm.getName() << " because " <<  e.what();
+    }
+}
+
+void Bureaucrat::executeForm(AForm &form) const
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << getName() <<  " couldn't sign " << form.getName() << " because " <<  e.what();
     }
 }
