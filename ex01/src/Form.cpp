@@ -9,7 +9,7 @@ Form::Form(void) : _name("no name"), _isSigned(150), _gradeSign(150), _gradeExec
     return ;
 }
 
-Form::Form(const std::string name, bool isSigned, const int gradeExecute, const int gradeSign): _name(name), _isSigned(isSigned), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
+Form::Form(const std::string name, bool isSigned, const int gradeSign, const int gradeExecute): _name(name), _isSigned(isSigned), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
     if (gradeExecute < 1)
         throw Form::GradeTooHighException();
@@ -88,6 +88,11 @@ const char *Form::GradeTooHighException::what() const throw()
     return ("Grade too high!");
     	//std::string
 		//thow is to indicate that what() will throw nothing
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low!");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
