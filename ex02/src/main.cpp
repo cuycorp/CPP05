@@ -52,6 +52,7 @@ int main()
     std::cout << PINK << "===== ShrubberyCreationForm =====" << RESET << std::endl;
     intern.executeForm(*forms[3]);
     std::cout << std::endl;
-
+    for (int j =0; j<4; j++)
+        delete forms[j];
     return 0;
 }
