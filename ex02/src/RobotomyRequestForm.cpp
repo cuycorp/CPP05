@@ -3,10 +3,10 @@
 #include <cstdlib>
 
 // Default constructor
-RobotomyRequestForm::RobotomyRequestForm(const std::string targetName): AForm("Robotomy Request Form", false, signGrade, executeGrade)
+RobotomyRequestForm::RobotomyRequestForm(const std::string targetName): AForm("Robotomy Request Form: " + targetName, false, signGrade, executeGrade)
 {
     setTarget(targetName);
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "RobotomyRequestForm constructor called" << std::endl;
     return ;
 }
 
@@ -14,15 +14,16 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string targetName): AForm("R
 // Destructor
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "RobotomyRequestForm Destructor called" << std::endl;
     return ;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor)
 {
     int i = rand() % 2;
-    if (getSignStatus() && executor.getGrade() >= getExecuteGrade())
+    if (getSignStatus() && executor.getGrade() <= getExecuteGrade())
     {
+        std::cout << "Form executed: ";
         if (i == 0)
             std::cout << "Drilll " << getTarget() << " has been robotomized." << std::endl;
         else

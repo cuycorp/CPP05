@@ -3,17 +3,17 @@
 #include <fstream>
 
 // Default constructor
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string targetName) : AForm("Shrubbery Creation Form ", false, signGrade, executeGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string targetName) : AForm("Shrubbery Creation Form: " + targetName, false, signGrade, executeGrade)
 {
     setTarget(targetName);
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ShrubberyCreationForm constructor called" << std::endl;
     return ;
 }
 
 // Destructor
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
     return ;
 }
 

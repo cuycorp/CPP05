@@ -98,10 +98,8 @@ const char *AForm::GradeTooLowException::what() const throw()
 
 const char *AForm::InvalidSignStatus::what() const throw()
 {
-    return ("Sign status is false!");
+    return ("Form is not signed!");
 }
-
-
 
 //overloading 
 std::ostream &operator<<(std::ostream &os, const AForm &instance)
