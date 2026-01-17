@@ -40,7 +40,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
     return ;
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor)
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     int i = rand() % 2;
     if (getSignStatus() && executor.getGrade() <= getExecuteGrade())

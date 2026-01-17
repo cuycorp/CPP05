@@ -32,7 +32,7 @@ class AForm
 
         //other methods
         void beSigned(Bureaucrat &instanceB);
-        virtual void execute(Bureaucrat const & executor) = 0;
+        virtual void execute(Bureaucrat const & executor)  const =0; 
 
         //exception
         class GradeTooHighException : public std::exception 

@@ -40,7 +40,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
     return ;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor)
+void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
     if (getSignStatus() && executor.getGrade() <= getExecuteGrade())
         std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;

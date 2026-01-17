@@ -59,7 +59,7 @@ static void createTreeFile(const std::string& filename) {
     else
         throw std::runtime_error("Failed to create file\n");
 }
-void ShrubberyCreationForm::execute(const Bureaucrat &executor)
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     if (getSignStatus() && executor.getGrade() <= getExecuteGrade())
     {

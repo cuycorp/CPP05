@@ -54,5 +54,5 @@ int main()
     std::cout << std::endl;
     for (int j =0; j<4; j++)
         delete forms[j];
-    return 0;
+    std::cout << BLUE << "===== End =====" << RESET << std::endl;
 }
