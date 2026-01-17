@@ -10,8 +10,15 @@
     * catching exceptions are designed to stop execution
 
 2. ex01
-    * 
+    * another exception implementation
+3. ex02
+    * exceptions and polymorphism review
+4. ex03
+    * using abstract class within a class
 
+
+
+* Logic notes 
 /*
 0. Add parameter: const std::string target
 1. Create Constructors: for all of the class constructors, set execution and signatura grade accoridng to given ranges
