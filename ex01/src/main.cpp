@@ -34,7 +34,7 @@ int main()
         Form f2("Invalid Form", false, 200, 10); // should throw
         std::cout << f2 << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception, on form creation: " << e.what() << std::endl;
     }
 
     std::cout << PINK << "\n========== SIGNING TESTS ==========\n" << RESET;
@@ -54,7 +54,7 @@ int main()
     std::cout << PINK <<"\n-- Boss tries to sign --\n" << RESET;
     boss.signForm(contract);
 
-    std::cout << "\nFinal form state:\n";
+    std::cout << "\nFinal form state: ";
     std::cout << contract << std::endl;
 
     std::cout << PINK << "\n========== END ==========\n" << RESET;

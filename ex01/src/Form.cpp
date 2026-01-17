@@ -86,8 +86,6 @@ int Form::getSignStatus(void) const
 const char *Form::GradeTooHighException::what() const throw()
 {
     return ("Grade too high!");
-    	//std::string
-		//thow is to indicate that what() will throw nothing
 }
 
 const char *Form::GradeTooLowException::what() const throw()
@@ -95,7 +93,3 @@ const char *Form::GradeTooLowException::what() const throw()
     return ("Grade too low!");
 }
 
-const char *Form::GradeTooLowException::what() const throw()
-{
-    return ("Grade too low!");
-}
